@@ -5,7 +5,7 @@ import seaborn as sns  # For heatmap
 print(" Employee Data Analysis Report\n")
 
 # 1. Load the CSV file
-df = pd.read_csv('employee_data.csv')  # Replace with the actual file path
+df = pd.read_csv('employee_data.csv', sep='\t')  # Replace with the actual file path
 print(" First 5 rows of the dataset:")
 print(df.head())
 
@@ -77,4 +77,5 @@ if 'Salary' in corr.columns:
     salary_corr = corr['Salary'].drop('Salary').sort_values(ascending=False)
     print("• Features most positively correlated with Salary:")
     for feature, value in salary_corr.head(3).items():
+
         print(f"   - {feature}: Correlation = {value:.2f}")
